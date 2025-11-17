@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAST Rocket Launch Countdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="stars-layer"></div>
+  <div class="outer-wrapper">
+    <header class="header-section">
+      <h1 class="main-title">SAST Rocket Launch Control Center</h1>
+      <h3 class="subtitle">Mission Countdown System</h3>
+    </header>
+    <section class="countdown-section">
+      <div class="countdown-wrapper">
+        <div class="count-box">
+          <span id="days">0</span>
+          <p>Days</p>
+        </div>
+        <div class="count-box">
+          <span id="hours">0</span>
+          <p>Hours</p>
+        </div>
+        <div class="count-box">
+          <span id="minutes">0</span>
+          <p>Minutes</p>
+        </div>
+        <div class="count-box">
+          <span id="seconds">0</span>
+          <p>Seconds</p>
+        </div>
+      </div>
+    </section>
+    <section class="launch-input-section">
+      <div class="input-container">
+        <input type="datetime-local" id="launchInput">
+        <button id="setLaunchBtn">Set Launch Time</button>
+      </div>
+      <h2 id="status" class="launch-status"></h2>
+    </section>
+    <footer class="footer-section">
+      <p>© 2025 SAST Rocket Research Division</p>
+      <p>Mission Control | Countdown Systems | Spaceflight Technology</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
