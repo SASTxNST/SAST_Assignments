@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero {
+    height: 100vh;
+    background-color: black;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('space.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 3rem 0;
+}
+
+#inputDateTime {
+    font-size: 1.8rem;
+}
+
+#inputDateTime input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: rgba(72, 72, 72, 0.5);
+    color: white;
+}
+
+#inputDateTime button {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: 2px solid white;
+    background-color: rgba(72, 72, 72, 0.5);
+    color: white;
+}
+
+#inputDateTime button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px white;
+    font-size: 1.01rem;
+}
+
+#timebox {
+    display: flex;
+    gap: 90px;
+    margin: 2rem 0;
+}
+
+.time {
+    text-align: center;
+}
+
+.time h2 {
+    font-size: 5rem;
+    font-weight: 100;
+}
+
+#launched {
+    display: none;
+    font-size: 3rem;
+    margin: 2rem;
+}
