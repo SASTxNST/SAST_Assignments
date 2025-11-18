@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Countdown Timer</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    background-image: url("image.png");
+    background-size: cover;     
+    background-position: center; 
+    background-repeat: no-repeat;  
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 30px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .timer {
+      font-size: 40px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="header" style="width: 100%; background-color: black;height: 80px; position: absolute; top: 0%;">
+        <img src="image copy.png" style="width: 150px; height: 150px;">
+    </div>
+    <div class="box" style="background-color: black; width: 600px; height: 200px;margin-left: 50px; text-align: center;">
+        <h1>Countdown Timer</h1>
+        <div style="color: white;" class="timer" id="timer">00 : 00 : 00 : 00</div>
+    </div>
+    <div class="footer" style="width: 100%; height: 50px; background-color: black; position: absolute; bottom: 0%;">
+        <h3 style="position: absolute; bottom: 0%;left: 600px;">&#128648SPACE IS CLOSER
+THAN YOU THINK&#128648</h3>
+    </div>
+    
+
+  
+
+  <script>
+    const targetDate = new Date("2025-11-18T21:00:00").getTime();
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("timer").innerHTML = "LAUNCHED 🚀";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("timer").innerHTML =
+        `${String(days).padStart(2, "0")} : ` +
+        `${String(hours).padStart(2, "0")} : ` +
+        `${String(minutes).padStart(2, "0")} : ` +
+        `${String(seconds).padStart(2, "0")}`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+
+</body>
+</html>
