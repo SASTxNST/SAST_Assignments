@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAST Telemetry Mission Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <header>
+        <h1>🛰️ SAST CubeSat Telemetry Dashboard</h1>
+        <p>Live Visualization of Satellite Temperature & Voltage</p>
+    </header>
+
+    <div class="main-container">
+
+        <div class="chart-card">
+            <h2>Temperature vs Time</h2>
+            <canvas id="tempChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h2>Voltage vs Time</h2>
+            <canvas id="voltChart"></canvas>
+        </div>
+
+        <div class="table-card">
+            <h2>Telemetry Data Table</h2>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Temperature (°C)</th>
+                        <th>Voltage (V)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <img src="astro2.png" class="astronaut" alt="Astronaut">
+
+    <script src="script.js"></script>
+</body>
+</html>
