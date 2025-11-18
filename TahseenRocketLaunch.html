@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SAST Rocket Launch Countdown</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Orbitron', sans-serif;
+        background: radial-gradient(circle at top, #0a0f24, #000);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+
+    .countdown {
+        display: flex;
+        gap: 25px;
+        margin-top: 20px;
+    }
+
+    .box {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px 30px;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        font-size: 1.5rem;
+        min-width: 100px;
+    }
+
+    .label {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        margin-top: 5px;
+        display: block;
+    }
+
+    #message {
+        margin-top: 25px;
+        font-size: 2rem;
+        color: #00eaff;
+        font-weight: bold;
+    }
+
+    .custom-input {
+        margin-top: 30px;
+    }
+
+    input {
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: none;
+    }
+
+    button {
+        padding: 8px 18px;
+        border: none;
+        border-radius: 6px;
+        margin-left: 10px;
+        cursor: pointer;
+        background: #00eaff;
+        color: #000;
+        font-weight: bold;
+    }
+
+</style>
+</head>
+
+<body>
+
+<h1>SAST ROCKET LAUNCH COUNTDOWN 🚀</h1>
+
+<div class="countdown">
+    <div class="box">
+        <span id="days">00</span>
+        <span class="label">DAYS</span>
+    </div>
+    <div class="box">
+        <span id="hours">00</span>
+        <span class="label">HOURS</span>
+    </div>
+    <div class="box">
+        <span id="minutes">00</span>
+        <span class="label">MINUTES</span>
+    </div>
+    <div class="box">
+        <span id="seconds">00</span>
+        <span class="label">SECONDS</span>
+    </div>
+</div>
+
+<div id="message"></div>
+
+<!-- Optional custom time -->
+<div class="custom-input">
+    <input type="datetime-local" id="customTime" />
+    <button onclick="setCustomTime()">Set Launch Time</button>
+</div>
+
+<script>
+    // Default launch date
+    let launchDate = new Date("2025-12-31T23:59:59").getTime();
+
+    function updateCountdown() {
+        let now = new Date().getTime();
+        let diff = launchDate - now;
+
+        if (diff <= 0) {
+            document.getElementById("message").innerText = "LAUNCHED 🚀";
+            document.getElementById("days").innerText =
+            document.getElementById("hours").innerText =
+            document.getElementById("minutes").innerText =
+            document.getElementById("seconds").innerText = "00";
+            return;
+        }
+
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        let minutes = Math.floor((diff / (1000 * 60)) % 60);
+        let seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("days").innerText = String(days).padStart(2, "0");
+        document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+        document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+        document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+    }
+
+    function setCustomTime() {
+        let input = document.getElementById("customTime").value;
+        if (!input) return alert("Please select a valid date & time!");
+
+        launchDate = new Date(input).getTime();
+        document.getElementById("message").innerText = "";
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // initial call
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
