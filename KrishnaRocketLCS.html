@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAST Minimal Countdown</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Arial", sans-serif;
+            color: #ffffff;
+            background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1920&q=60') center/cover no-repeat fixed;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            backdrop-filter: blur(0px);
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 45px;
+            align-items: baseline;
+        }
+
+        .unit {
+            text-align: center;
+        }
+
+        .number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        #message {
+            margin-top: 25px;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .custom {
+            margin-top: 30px;
+        }
+
+        input {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            margin-left: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            background: #ffffff;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+
+    <h1>SAST ROCKET LAUNCH COUNTDOWN</h1>
+
+    <div class="countdown">
+        <div class="unit">
+            <div class="number" id="days">00</div>
+            <div class="label">DAYS</div>
+        </div>
+
+        <div class="unit">
+            <div class="number" id="hours">00</div>
+            <div class="label">HOURS</div>
+        </div>
+
+        <div class="unit">
+            <div class="number" id="minutes">00</div>
+            <div class="label">MINUTES</div>
+        </div>
+
+        <div class="unit">
+            <div class="number" id="seconds">00</div>
+            <div class="label">SECONDS</div>
+        </div>
+    </div>
+
+    <div id="message"></div>
+
+    <div class="custom">
+        <input type="datetime-local" id="customTime">
+        <button onclick="setTime()">Set</button>
+    </div>
+
+    <script>
+        let launchDate = new Date("2025-12-31T23:59:59").getTime();
+
+        function updateCountdown() {
+            let now = new Date().getTime();
+            let diff = launchDate - now;
+
+            if (diff <= 0) {
+                document.getElementById("message").innerText = "LAUNCHED 🚀";
+                ["days", "hours", "minutes", "seconds"].forEach(id => {
+                    document.getElementById(id).innerText = "00";
+                });
+                return;
+            }
+
+            let d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            let m = Math.floor((diff / (1000 * 60)) % 60);
+            let s = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("days").innerText = String(d).padStart(2, "0");
+            document.getElementById("hours").innerText = String(h).padStart(2, "0");
+            document.getElementById("minutes").innerText = String(m).padStart(2, "0");
+            document.getElementById("seconds").innerText = String(s).padStart(2, "0");
+        }
+
+        function setTime() {
+            let v = document.getElementById("customTime").value;
+            if (!v) return alert("Select a valid date & time");
+            launchDate = new Date(v).getTime();
+            document.getElementById("message").innerText = "";
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+</body>
+
+</html>
