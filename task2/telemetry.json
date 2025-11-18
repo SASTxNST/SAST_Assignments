@@ -1,0 +1,14 @@
+[
+  { "time": "10:00", "temp": 22, "voltage": 3.7 },
+  { "time": "10:10", "temp": 23, "voltage": 3.7 },
+  { "time": "10:20", "temp": 24, "voltage": 3.6 },
+  { "time": "10:30", "temp": 25, "voltage": 3.6 },
+  { "time": "10:40", "temp": 27, "voltage": 3.5 },
+  { "time": "10:50", "temp": 29, "voltage": 3.5 },
+  { "time": "11:00", "temp": 30, "voltage": 3.4 },
+  { "time": "11:10", "temp": 31, "voltage": 3.4 },
+  { "time": "11:20", "temp": 33, "voltage": 3.3 },
+  { "time": "11:30", "temp": 35, "voltage": 3.3 },
+  { "time": "11:40", "temp": 36, "voltage": 3.2 },
+  { "time": "11:50", "temp": 37, "voltage": 3.2 }
+]
